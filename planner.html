@@ -8,56 +8,61 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/media.css" />
-
     <style>
-      html, body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: #f0f0f0;
-      }
-      .container {
+      @media( orientation: portrait ){
+        html {
+          transform: rotate(-90deg);
+          transform-origin: top left;
+          position: absolute;
+          top: 100%;
+          left: 0;
           width: 100vh;
           height: 100vw;
-          transform: rotate(90deg);
-          transform-origin: center center;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        }
       }
-      .content2 {
-          text-align: center;
-          font-family: Arial, sans-serif;
-      }
-      @media (orientation: landscape) {
-          .container {
-              transform: rotate(0deg);
-              width: 100vw;
-              height: 100vh;
-          }
-      }
-  </style>
+    </style>
+    
   </head>
-  <body >
-    <div class="container">
-      <div class="content2">
-          <h1>Welcome to Landscape Mode</h1>
-          <p>This content is best viewed in landscape mode.</p>
+  <body>
+
+    <div class="landscape-cont">
+      <!-- <img class="img-planner" src="images/@img_smart_planner.png" alt=""> -->
+      <div class="toolbar">
+        <div class="toolbar-1 align both column">
+          <a class="btn-planner-back text-center pt12" href="javascript:window.history.back();"><img src="images/ico_planner_back.svg" alt=""></a>
+          <img class="btn-tool" src="images/ico_planner_left.svg" alt="">
+          <a class="btn-guide text-center pb12" href=""><img src="images/ico_planner_guide.svg" alt=""></a>
+        </div>
+        <div class="toolbar-2 align both">
+          <img src="images/ico_planner_bottom1.svg" alt="">
+          <img src="images/ico_planner_bottom2.svg" alt="">
+        </div>
+        <div class="layer"></div>
+        <div class="modal-2">
+          <img class="img1" src="images/ico_planner_active1.svg" alt="">
+          <img class="img2" src="images/ico_planner_active2.svg" alt="">
+          <img class="img3" src="images/ico_planner_active3.svg" alt="">
+          <!-- <img class="img4" src="images/ico_planner_active4.svg" alt=""> -->
+          <!-- <img class="img5" src="images/ico_planner_active5.svg" alt=""> -->
+          <!-- <img class="img6" src="images/ico_planner_active6.svg" alt=""> -->
+          <!-- <img class="img7" src="images/ico_planner_active7.svg" alt=""> -->
+          <!-- <img class="img8" src="images/ico_planner_active8.svg" alt="">  -->
+        
+        </div>
+  
+   
+      
       </div>
     </div>
-    <script>
-        function adjustViewport() {
-            let viewportMeta = document.querySelector('meta[name="viewport"]');
-            viewportMeta.setAttribute('content', 'width=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-        }
 
-        adjustViewport();
+
+    <script>
+      $('.btn-guide').click(function() {
+        // alert("dd")
+        $('.layer').addClass('active')
+      })
     </script>
   </body>
-  <script src="js/button.js"></script>
-  <script src="js/navFoot.js"></script>
+  <!-- <script src="js/button.js"></script> -->
+  <!-- <script src="js/navFoot.js"></script> -->
 </html>

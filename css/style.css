@@ -5480,12 +5480,15 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 200;
   background: rgba(0, 0, 0, 0.50);
+  &.active {
+    display: block;
+  }
 }
 .modal-1 {
   display: none;
-  position: fixed;
+  position: fixed; 
   top: 50%;
   left: 50%;
   z-index: 101;
@@ -5506,4 +5509,87 @@ input[type="number"]::-webkit-inner-spin-button {
   &.border-bottom {
     border-color: #cfd6e0;
   }
+}
+.modal-2 {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  & img {
+    position: absolute;
+    &.img1 { 
+      top: 50%; 
+      left: .25rem; 
+      transform: translateY(-50%);
+    }
+    &.img2 {  
+      bottom: 0;
+      left: 4rem;
+    }
+    &.img3 {  
+      bottom: 0;
+      right: 0;
+
+    }
+    &.img4 {  }
+    &.img5 {  }
+    &.img6 {  }
+    &.img7 {  }
+    &.img8 {  }
+  }
+
+}
+.landscape-cont {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url(../images/@img_smart_planner.png) no-repeat center center / contain;
+  & .img-planner {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* aspect-ratio: 0.47 / 1 /1; */
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  & .toolbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    
+    & .toolbar-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      background: #F1F1F1;
+      & .btn-planner-back { display: block; width: 100%; }
+      & .btn-tool { display: block; width: 100%;}
+      & .btn-guide { display: block; width: 100%; }
+    }
+    & .toolbar-2 {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 40px;
+      width: calc(100% - 40px);
+      background: #F1F1F1;
+      & img {
+
+      }
+    }
+    
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
 }
