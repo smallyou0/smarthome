@@ -10,54 +10,53 @@
     <link rel="stylesheet" href="css/media.css" />
 
     <style>
-      body {
+      html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 100vh;
-          margin: 0;
-          font-family: Arial, sans-serif;
+          background: #f0f0f0;
+      }
+      .container {
+          width: 100vh;
+          height: 100vw;
+          transform: rotate(90deg);
+          transform-origin: center center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .content2 {
           text-align: center;
+          font-family: Arial, sans-serif;
       }
-      .rotate-notice {
-          display: none;
-      }
-      .landscape {
-          display: block;
+      @media (orientation: landscape) {
+          .container {
+              transform: rotate(0deg);
+              width: 100vw;
+              height: 100vh;
+          }
       }
   </style>
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function lockOrientation() {
-                if (screen.orientation && screen.orientation.lock) {
-                    screen.orientation.lock('landscape').catch(function(error) {
-                        console.error('Orientation lock failed: ', error);
-                    });
-                } else {
-                    alert('Orientation lock is not supported in this browser.');
-                }
-            }
-
-            lockOrientation();
-
-            window.addEventListener('orientationchange', function() {
-                if (screen.orientation.type.startsWith('portrait')) {
-                    document.getElementById('rotate-notice').classList.add('landscape');
-                } else {
-                    document.getElementById('rotate-notice').classList.remove('landscape');
-                }
-            });
-        });
-    </script>
   </head>
-  <body class="bg-white">
-    <div id="rotate-notice" class="rotate-notice">
-      <h1>Please rotate your device to landscape mode</h1>
-  </div>
-  <div id="content">
-      <h1>Welcome to Landscape Mode</h1>
-      <p>This content is best viewed in landscape mode.</p>
-  </div>
+  <body >
+    <div class="container">
+      <div class="content2">
+          <h1>Welcome to Landscape Mode</h1>
+          <p>This content is best viewed in landscape mode.</p>
+      </div>
+    </div>
+    <script>
+        function adjustViewport() {
+            let viewportMeta = document.querySelector('meta[name="viewport"]');
+            viewportMeta.setAttribute('content', 'width=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        }
+
+        adjustViewport();
+    </script>
   </body>
   <script src="js/button.js"></script>
   <script src="js/navFoot.js"></script>
