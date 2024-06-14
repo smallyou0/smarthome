@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스마트홈</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+
+    <style>
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          font-family: Arial, sans-serif;
+          text-align: center;
+      }
+      .rotate-notice {
+          display: none;
+      }
+      .landscape {
+          display: block;
+      }
+  </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function lockOrientation() {
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('landscape').catch(function(error) {
+                        console.error('Orientation lock failed: ', error);
+                    });
+                } else {
+                    alert('Orientation lock is not supported in this browser.');
+                }
+            }
+
+            lockOrientation();
+
+            window.addEventListener('orientationchange', function() {
+                if (screen.orientation.type.startsWith('portrait')) {
+                    document.getElementById('rotate-notice').classList.add('landscape');
+                } else {
+                    document.getElementById('rotate-notice').classList.remove('landscape');
+                }
+            });
+        });
+    </script>
+  </head>
+  <body class="bg-white">
+    <div id="rotate-notice" class="rotate-notice">
+      <h1>Please rotate your device to landscape mode</h1>
+  </div>
+  <div id="content">
+      <h1>Welcome to Landscape Mode</h1>
+      <p>This content is best viewed in landscape mode.</p>
+  </div>
+  </body>
+  <script src="js/button.js"></script>
+  <script src="js/navFoot.js"></script>
+</html>
