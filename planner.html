@@ -20,11 +20,36 @@
           height: 100vw;
         }
       }
+      @media(orientation: landscape) {
+        body {
+          display: none;
+        }
+
+        .landscape-warning {
+          display: block;
+          width: 100vw;
+          height: 100vh;
+          background: #000;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 24px;
+          text-align: center;
+        }
+      }
+
+      @media(orientation: portrait) {
+        .landscape-warning {
+          display: none;
+        }
+      }
+
     </style>
     
   </head>
   <body>
-
+    <div class="landscape-warning">Please rotate your device to portrait mode.</div>
     <div class="landscape-cont">
       <!-- <img class="img-planner" src="images/@img_smart_planner.png" alt=""> -->
       <div class="toolbar">
@@ -47,20 +72,28 @@
           <!-- <img class="img6" src="images/ico_planner_active6.svg" alt=""> -->
           <!-- <img class="img7" src="images/ico_planner_active7.svg" alt=""> -->
           <!-- <img class="img8" src="images/ico_planner_active8.svg" alt="">  -->
-        
         </div>
-  
-   
       
       </div>
     </div>
 
-
     <script>
-      $('.btn-guide').click(function() {
-        // alert("dd")
-        $('.layer').addClass('active')
-      })
+      $(document).ready(function() {
+        $('.btn-guide').click(function(event) {
+          event.preventDefault();  // 기본 동작 방지
+          $('.modal-2').show();
+          $('.layer').show();
+        });
+        $('.modal-2').click(function(event) {
+          $('.layer').hide();
+          $('.modal-2').hide();
+        });
+      });
+      window.addEventListener("orientationchange", function() {
+        if (window.matchMedia("(orientation: landscape)").matches) {
+          alert("Please rotate your device to portrait mode.");
+        }
+      });      
     </script>
   </body>
   <!-- <script src="js/button.js"></script> -->
