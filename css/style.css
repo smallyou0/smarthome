@@ -5080,9 +5080,9 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: var(--white);
   border-radius: 10px;
   &.w120 {
-    width: 120px;
+    width: 125px;
     & img {
-      width: 120px;
+      width: 125px;
       border-radius: 5px;
     }
   }
