@@ -4646,8 +4646,8 @@ body.popup-open::before {
   }
   & li {
     width: 100%;
-    min-width: 55px;
-    max-width: 55px;
+    /* min-width: 55px;
+    max-width: 55px; */
     display: flex;
     align-items: center;
     justify-content: center;
