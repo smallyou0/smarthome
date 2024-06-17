@@ -4647,6 +4647,7 @@ body.popup-open::before {
   & li {
     width: 100%;
     min-width: 55px;
+    max-width: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4708,6 +4709,7 @@ body.popup-open::before {
       max-width: 55px;
       aspect-ratio: 1 / 1;
       border-radius: 1rem;
+
       &.ico1 {
         position: relative;
         &::after {
@@ -5710,6 +5712,9 @@ input[type="number"]::-webkit-inner-spin-button {
     }
     
   }
+}
+.nowrap {
+  white-space: nowrap;
 }
 * {
   padding: 0;
